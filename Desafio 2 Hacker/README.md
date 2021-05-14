@@ -1,6 +1,6 @@
-## Desafio 2 - Hacker
+# Desafio 2 - Hacker
 
-Escreva rotinas em Javascript que recebam esta lista de produtos como parâmetros e calcule (1 rotina para cada item)
+## Escreva rotinas em Javascript que recebam esta lista de produtos como parâmetros e calcule (1 rotina para cada item):
 
 
 Quantidade total de itens em estoque (somatória das quantidades de todos os produtos)
