@@ -1147,3 +1147,69 @@ function exercicio4(){
     console.log(totalInventario);
 
 } exercicio4()
+
+function exercicio5(){
+    let departamento = {
+        id: 0,
+        nomeDepto: "",
+        qtdEstoque: 0
+    }
+    
+    let idDepto = 0
+    for(pos=0; pos<listaProdutos.length; pos++){
+       if(idDepto != listaProdutos[pos].departamento.idDepto){   //mudou o departamento
+            if (departamento.id != 0){
+                console.log("Estoque do Departamento...");
+                console.log(departamento);
+            }
+            idDepto = listaProdutos[pos].departamento.idDepto;
+            departamento.id = idDepto;
+            departamento.nomeDepto = listaProdutos[pos].departamento.nomeDepto;
+            departamento.qtdEstoque = listaProdutos[pos].qtdEstoque;
+       }
+       else{  // manteve o departamento
+            departamento.qtdEstoque = departamento.qtdEstoque + listaProdutos[pos].qtdEstoque;
+       }
+    }
+    console.log(departamento);
+}
+
+function exercicio9(){
+    let departamento = {
+        id: 0,
+        nomeDepto: "",
+        inventario: 0
+    }
+    
+    let departamentoMaisValioso = {
+        id: 0,
+        nomeDepto: "",
+        inventario: 0
+    }
+    
+    let idDepto = 0
+    for(pos=0; pos<listaProdutos.length; pos++){
+       if(idDepto != listaProdutos[pos].departamento.idDepto){   //mudou o departamento
+            if (departamento.id != 0){
+               // console.log("Inventario do Departamento...");
+               // console.log(departamento);
+                if (departamento.inventario > departamentoMaisValioso.inventario){
+                   departamentoMaisValioso.id = departamento.id;
+                   departamentoMaisValioso.nomeDepto = departamento.nomeDepto;
+                   departamentoMaisValioso.inventario = departamento.inventario;
+                   //departamentoMaisValioso = departamento;
+                }
+            }
+            idDepto = listaProdutos[pos].departamento.idDepto;
+            departamento.id = idDepto;
+            departamento.nomeDepto = listaProdutos[pos].departamento.nomeDepto;
+            departamento.inventario = listaProdutos[pos].qtdEstoque * listaProdutos[pos].preco;
+       }
+       else{  // manteve o departamento
+            departamento.inventario = departamento.inventario + listaProdutos[pos].qtdEstoque * listaProdutos[pos].preco;
+       }
+    }
+    //console.log(departamento);
+    console.log("Departamento mais valiosooooo.......");
+    console.log(departamentoMaisValioso);
+}
