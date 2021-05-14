@@ -1102,7 +1102,7 @@ for (i=0; i< listaProdutos.length; i++){
     let produto = listaProdutos[i];
     total = total + produto.qtdEstoque;
 }
-console.log(total);
+console.log("Quantidade total de itens em estoque " + total);
 } exercicio1()
 
 
@@ -1116,7 +1116,7 @@ function exercicio2(){
             totalEmDestaque++      // ou totalEmDestaque = totalEmDestaque+1
         }
     }
-    console.log(totalEmDestaque);
+    console.log("Quantidade total de itens em destaque " + totalEmDestaque);
     } exercicio2()
 
 
@@ -1131,8 +1131,10 @@ function exercicio3(){
                 total++       
             }
         }
-        console.log(total);
+        console.log("Quantidade total de itens disponíveis " + total);
         } exercicio3()
+
+
 
 
 function exercicio4(){
@@ -1144,9 +1146,11 @@ function exercicio4(){
         totalInventario = totalInventario + produto.qtdEstoque * produto.preco;
         }
     }
-    console.log(totalInventario);
+    console.log("Valor total do inventário da empresa: " + totalInventario);
 
 } exercicio4()
+
+
 
 function exercicio5(){
     let departamento = {
@@ -1172,7 +1176,80 @@ function exercicio5(){
        }
     }
     console.log(departamento);
+}exercicio5()
+
+
+function exercicio6(){
+    let departamento = {
+        id: 0,
+        nomeDepto: "",
+        preco: 0
+        
+    }
+    
+    let idDepto = 0
+    for(pos=0; pos<listaProdutos.length; pos++){
+       if(idDepto != listaProdutos[pos].departamento.idDepto){   //mudou o departamento
+            if (departamento.id != 0){
+                console.log("Valor total do inventário por departamento");
+                console.log(departamento);
+            }
+            idDepto = listaProdutos[pos].departamento.idDepto;
+            departamento.id = idDepto;
+            departamento.nomeDepto = listaProdutos[pos].departamento.nomeDepto;
+                   }
+       else{  // manteve o departamento
+            departamento.preco = departamento.preco + listaProdutos[pos].preco * listaProdutos[pos].qtdEstoque;
+       }
+    }
+    console.log(departamento);
+} exercicio6()
+
+function exercicio7(){
+    let totalInventario = 0 
+    let ticketMedio = 0
+
+    for (i=0; i< listaProdutos.length; i++){
+    let produto = listaProdutos[i];
+
+    if(produto.qtdEstoque >= 1){
+    totalInventario = totalInventario + produto.qtdEstoque * produto.preco;
+    ticketMedio = totalInventario / produto.qtdEstoque
+    }
 }
+console.log("Ticket médio dos produtos da empresa: " + ticketMedio);
+
+} exercicio7()
+
+
+function exercicio8(){
+    let departamento = {
+        id: 0,
+        nomeDepto: "",
+        preco: 0,
+        ticket: 0
+    }
+    
+    let idDepto = 0
+    for(pos=0; pos<listaProdutos.length; pos++){
+       if(idDepto != listaProdutos[pos].departamento.idDepto){   //mudou o departamento
+            if (departamento.id != 0){
+                console.log("Valor do ticket médio por departamento");
+                console.log(departamento);
+            }
+            idDepto = listaProdutos[pos].departamento.idDepto;
+            departamento.id = idDepto;
+            departamento.nomeDepto = listaProdutos[pos].departamento.nomeDepto;
+            
+                   }
+       else{  // manteve o departamento
+            departamento.preco = departamento.preco + listaProdutos[pos].preco * listaProdutos[pos].qtdEstoque;
+            departamento.ticket = departamento.preco / listaProdutos[pos].qtdEstoque
+       }
+    }
+    console.log(departamento);
+} exercicio8()
+
 
 function exercicio9(){
     let departamento = {
@@ -1210,6 +1287,37 @@ function exercicio9(){
        }
     }
     //console.log(departamento);
-    console.log("Departamento mais valiosooooo.......");
+    console.log("Departamento mais valioso");
     console.log(departamentoMaisValioso);
-}
+} exercicio9()
+
+
+
+function exercicio10(){
+    
+    let maisCaro = Math.max.apply(Math,listaProdutos.map(function(o){return o.preco;} ))
+    console.log(maisCaro)
+
+        for (i=0; i< listaProdutos.length; i++){
+        let produtoMaisCaro = listaProdutos[i];
+
+        if(produtoMaisCaro.preco === maisCaro){
+        console.log("Produto mais caro da loja: " + produtoMaisCaro.descricao + " preço: " + maisCaro + " departamento: " + produtoMaisCaro.departamento.nomeDepto);
+        }
+    }
+   
+} exercicio10()
+
+function exercicio11(){
+    
+    let maisBarato = Math.min.apply(Math,listaProdutos.map(function(o){return o.preco;} ))
+    
+        for (i=0; i< listaProdutos.length; i++){
+        let produtoMaisBarato = listaProdutos[i];
+
+        if(produtoMaisBarato.preco === maisBarato){
+        console.log("Produto mais barato da loja: " + produtoMaisBarato.descricao + " preço: " + maisBarato + " departamento: " + produtoMaisBarato.departamento.nomeDepto);
+        }
+    }
+   
+} exercicio11()
