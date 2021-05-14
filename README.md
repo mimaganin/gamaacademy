@@ -1,6 +1,6 @@
 # Planejamento das tarefas no ciclo ágil
 
-## Time: Professor Isidro
+## Time: Milena Maganin
 
 ## Roadmap
 
