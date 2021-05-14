@@ -1096,8 +1096,7 @@ var listaProdutos = [
 
 // agora começam as reoluções
 
-
- function exercicio1(){ 
+function exercicio1(){ 
     let total = 0;
 for (i=0; i< listaProdutos.length; i++){
     let produto = listaProdutos[i];
@@ -1106,25 +1105,28 @@ for (i=0; i< listaProdutos.length; i++){
 console.log(total);
 } exercicio1()
 
- function exercicio2(){
-    let total = 0;
+
+
+function exercicio2(){
+    let totalEmDestaque = 0;
     for (i=0; i< listaProdutos.length; i++){
         let produto = listaProdutos[i];
     
         if(produto.emDestaque === "sim"){
-            produto.emDestaque;
-            total++       
+            totalEmDestaque++      // ou totalEmDestaque = totalEmDestaque+1
         }
     }
-    console.log(total);
+    console.log(totalEmDestaque);
     } exercicio2()
 
-    function exercicio3(){
-        let total = 0;
+
+
+function exercicio3(){
+    let total = 0;
         for (i=0; i< listaProdutos.length; i++){
-            let produto = listaProdutos[i];
+        let produto = listaProdutos[i];
         
-            if(produto.disponivel === "sim"){
+        if(produto.disponivel === "sim"){
                 produto.disponivel;
                 total++       
             }
@@ -1133,13 +1135,15 @@ console.log(total);
         } exercicio3()
 
 
-        function exercicio4(){
-            let total = 0;
-            for (i=0; i< listaProdutos.length; i++){
-                let produto = listaProdutos[i];
-                total = (produto.preco * produto.qtdEstoque)
-                }
-                console.log(total);
+function exercicio4(){
+        let totalInventario = 0 
+        for (i=0; i< listaProdutos.length; i++){
+        let produto = listaProdutos[i];
 
-            } exercicio4()       
+        if(produto.qtdEstoque >= 1){
+        totalInventario = totalInventario + produto.qtdEstoque * produto.preco;
+        }
+    }
+    console.log(totalInventario);
 
+} exercicio4()
